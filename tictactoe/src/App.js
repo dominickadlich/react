@@ -28,7 +28,7 @@ function Board({ xIsNext, squares, onPlay }) {
   if (winner) {
     status = "Winner: " + winner;
    } else {
-    status = "Next player: " + (xIsNext ? "X" : "O")
+    status = "Next player: " + (xIsNext ? "X" : "O");
    }
 
   return (
@@ -54,7 +54,7 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const {xIsNext, setXIsNext} = useState(true);
+  const [xIsNext, setXIsNext] = useState(true);
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
@@ -75,7 +75,7 @@ export default function Game() {
       description = "Go to game start";
     }
     return (
-      <li>
+      <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
       </li>
     );
