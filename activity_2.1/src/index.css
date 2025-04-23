@@ -54,6 +54,20 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+img {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  box-shadow: 8px 8px 10px #747bff;
+}
+
+.notes-border {
+  border: 2px solid #747bff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
