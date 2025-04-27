@@ -3,14 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import EmailInput from './components/EmailInput'
+import CharCounter from './components/CharCounter'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <EmailInput />
+      <CharCounter />
 
       <div>
         <a href="https://vite.dev" target="_blank">
