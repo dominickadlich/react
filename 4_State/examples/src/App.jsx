@@ -3,14 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import CharCounter from './components/CharCounter'
+import { SearchBar } from './components/SearchBar'
+import { Overview } from './components/SearchBar'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState('0')
+  const [searchTerm, setSearchTerm] = useState('');
+  function handleUpdateSearch(event) {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <>
-      <CharCounter />
+      <SearchBar onUpdateSearch={handleUpdateSearch}/>
+      <Overview currentTerm={searchTerm}/>
 
       <div>
         <a href="https://vite.dev" target="_blank">
