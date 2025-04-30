@@ -19,7 +19,7 @@ function CrClCalculator({
             {' '}
             <input 
                 type="number"
-                placeholder="Weight"
+                placeholder="Weight (kg)"
                 onChange={onWeightChange}
             />
             {' '}

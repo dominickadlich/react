@@ -29,7 +29,7 @@ function App() {
   let result;
 
   if (gender === 'Male') {
-    result = ((140 - Number(age) * Number(weight))/(72* Number(creatinine)))
+    result = (((140 - Number(age)) * Number(weight))/(72* Number(creatinine)))
   } else {
     result = ((140 - Number(age) * Number(weight))/(72* Number(creatinine))) * 0.85
   }
