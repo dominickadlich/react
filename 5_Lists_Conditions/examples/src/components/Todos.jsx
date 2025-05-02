@@ -1,23 +1,40 @@
 import { useState } from "react";
+
 function Todos() {
-    const [todos, setTodos] = useState(['Learn React', 'Read this book'])
-    function handleAddTodo(event) {
-        setTodos(curTodos => [...curTodos, event.target.value])
+    const [enteredTodoText, setEnteredTodoText] = useState('');
+    const [todos, setTodos] = useState([]);
+
+    function handleChangeTodoText(event) {
+        setEnteredTodoText(event.target.value);
     }
+
+    function handleAddTodo(event) {
+        event.preventDefault();
+        setTodos((curTodos) => [
+            { id: new Date().toISOString(), text: enteredTodoText },
+            ...curTodos,
+        ]);
+        setEnteredTodoText('')
+    }
+
     return (
-        <div>
-            <form>
-                <input
+        <>
+            <form onSubmit={handleAddTodo}>
+                <label>Todo</label>
+                <input 
                     type="text"
-                    placeholder="New Task"
-                /> 
-                <button onClick={handleAddTodo}/>
+                    onChange={handleChangeTodoText}
+                    value={enteredTodoText}
+                />
+                <button>Add Todo</button>
             </form>
             <ul>
-                {todos.map(todo => <li>{todo}</li>)}
+                {todos.map((todo) => (
+                    <li key={todo.id}>{todo.text}</li>
+                ))}
             </ul>
-        </div>
+        </>
     );
-};
+}
 
 export default Todos;
