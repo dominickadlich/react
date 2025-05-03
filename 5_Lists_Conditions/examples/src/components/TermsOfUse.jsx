@@ -10,7 +10,6 @@ function TermsOfUse() {
     return (
         <section>
             <button onClick={handleShowTermsSummary}>Show Terms of Use Summary</button>
-            {paragraph}
             {showTerms 
                 ? <p>"By continuing, you accept that we will not indemnify you for any damage of harm caused by our products."</p>
                 : null}
