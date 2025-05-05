@@ -11,5 +11,5 @@ function ProductsListMap({products}) {
         </ul>
     );
 };
-
+ 
 export default ProductsListMap;
