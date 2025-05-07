@@ -59,6 +59,30 @@ li {
   font-size: 18px;
 }
 
+.low {
+  background-color: blue;
+  color: white;
+}
+
+.high {
+  background-color: red;
+  color: black;
+}
+
+.box-info {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #d6aafa;
+  color: #410474;
+}
+
+.box-alert {
+  padding: 1rem;;
+  border-radius: 6px;
+  background-color: #f9bcb5;
+  color: #480c0c;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

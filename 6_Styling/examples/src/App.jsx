@@ -2,12 +2,19 @@ import { useState } from 'react'
 import './App.css'
 
 import ColoredText from './components/ColoredText'
+import TodoPriority from './components/TodoPriority'
+import TextBox from './components/TextBox'
 
 function App() {
 
   return (
     <>
-      <ColoredText />
+      <TextBox mode="info">
+        Visit react.dev for a complete API reference.
+      </TextBox>
+      <TextBox mode="alert">
+        Unfortunately, loading the course list failed.
+      </TextBox>
     </>
   )
 }
