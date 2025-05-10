@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function EmailAndPassword() {
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    // const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
 
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
@@ -11,12 +11,6 @@ function EmailAndPassword() {
 
     function handleSetEmailText(event) {
         setEmailText(event.target.value)
-    }
-
-    function handleSetEmail(event) {
-        event.preventDefault();
-        setEmail(emailText);
-        setEmailText('')
     }
 
     function handleSetPasswordText(event) {
@@ -29,29 +23,75 @@ function EmailAndPassword() {
         setPasswordText('');
     }
 
+    function handleSetDetail(event) {
+        event.preventDefault();
+        setEmail(emailText);
+        setPassword(passwordText);
+        setEmailText('')
+        setPasswordText('')
+    }
+
     return (
         <>
-            <form onSubmit={handleSetEmail}>
-                <label>Email: </label>
-                <input
-                    type="text"
-                    onChange={handleSetEmailText}
-                    value={emailText}
-                />
-            </form>
-            {/* <form onSubmit={handleSetPassword}>
-                <label>Password: </label>
-                <input
-                    type="text"
-                    onChange={setPasswordText}
-                    value={passwordText}
-                />
-            </form> */}
-            <button>Submit</button>
-            <section role='alert'>
-                {!email.includes("@") && <p>Invalid email address!</p>}
-                {/* {regex.test(password) && <p>Invalid password!</p>} */}
-            </section>
+            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form onSubmit={handleSetDetail} className="space-y-6">
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <label htmlFor="email" className="block text-sm/6 font-medium text-white-900">
+                                Email Address
+                            </label>
+                        </div>
+                        <div className="mt-2">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                required
+                                autoComplete="email"
+                                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray=900 outline-1 -outline-offset-1 outline-gray-300 placeholder: text-gray-400 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+
+                                onChange={handleSetEmailText}
+                                value={emailText}
+
+                            />
+                        </div>
+                        <section className='alert'>
+                            {!email.includes("@") && <p>Invalid email address!</p>}
+                        </section>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <label htmlFor="password" className="block text-sm/6 font-medium text-white-900">
+                                Password 
+                            </label>
+                        </div>
+                            <div className="mt-2">
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray=900 outline-1 -outline-offset-1 outline-gray-300 placeholder: text-gray-400 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+
+                                    onChange={handleSetPasswordText}
+                                    value={passwordText}
+                                />
+                            </div>
+                        <section className='alert'>
+                            {!password.includes('a') && <p>Invalid password!</p>}
+                        </section>
+                    </div>
+                    <div>
+                        <button
+                            type="sumbit"
+                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
