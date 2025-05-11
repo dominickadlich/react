@@ -31,12 +31,13 @@ function App() {
   if (gender === 'Male') {
     result = (((140 - Number(age)) * Number(weight))/(72* Number(creatinine)))
   } else {
-    result = ((140 - Number(age) * Number(weight))/(72* Number(creatinine))) * 0.85
+    result = (((140 - Number(age)) * Number(weight))/(72* Number(creatinine))) * 0.85
   }
 
 
   return (
     <>
+    <h1>The KU CrCl Calculator</h1>
       <CrClCalculator 
         onAgeChange={handleSetAge}
         onWeightChange={handleSetWeight}
@@ -48,4 +49,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
