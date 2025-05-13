@@ -54,7 +54,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-label.invalid {
+/* label.invalid {
   font-weight: bold;
   color: #ce0653;
 }
@@ -62,7 +62,7 @@ label.invalid {
 input.invalid {
   background-color: #fcbed6;
   border-color: #ce0653;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
