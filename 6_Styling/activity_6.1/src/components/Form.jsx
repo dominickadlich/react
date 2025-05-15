@@ -1,5 +1,6 @@
 import { useState } from "react";
-import classes from ''
+import classes from './Form.module.css';
+
 
 function Form() {
     const [enteredEmail, setEnteredEmail] = useState('');
@@ -37,25 +38,25 @@ function Form() {
         <>
             <form onSubmit={handleSubmitForm}>
                 <div>
-                    <label htmlFor="email" className={!emailIsValid && 'invalid'}>
+                    <label htmlFor="email" className={!emailIsValid && 'labelInvalid'}>
                         Your email
                     </label>
                     <input
                         id="email"
                         type="email"
                         onChange={handleChangeEmail}
-                        className={!emailIsValid && 'invalid'}
+                        className={!emailIsValid && 'inputInvalid'}
                     />
                 </div>
                 <div>
-                    <label htmlFor="password" className={!passwordIsValid && 'invalid'}>
+                    <label htmlFor="password" className={!passwordIsValid && 'labelInvalid'}>
                         Your password
                     </label>
                     <input
                         id="password"
                         type="password"
                         onChange={handleChangePassword}
-                        className={!passwordIsValid && 'invalid'}
+                        className={!passwordIsValid && 'inputInvalid'}
                     />
                 </div>
                 <button>Submit</button>
