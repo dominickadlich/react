@@ -25,6 +25,7 @@ function EmailAndPassword() {
 
     function handleSetDetail(event) {
         event.preventDefault();
+        
         setEmail(emailText);
         setPassword(passwordText);
         setEmailText('')
@@ -55,9 +56,6 @@ function EmailAndPassword() {
 
                             />
                         </div>
-                        <section className='alert'>
-                            {!email.includes("@") && <p>Invalid email address!</p>}
-                        </section>
                     </div>
 
                     <div>
@@ -78,14 +76,14 @@ function EmailAndPassword() {
                                     value={passwordText}
                                 />
                             </div>
-                        <section className='alert'>
-                            {!password.includes('a') && <p>Invalid password!</p>}
-                        </section>
-                    </div>
+                        </div>
                     <div>
                         <button
                             type="sumbit"
-                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className= { !passwordIsValid
+                            ? "flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            : "flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-offset-2 outline-color: var(--color-red-500)"
+                        }
                         >
                             Sign in
                         </button>
