@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useRef } from "react";
+
+import classes from './Preferences.module.css'
 
 
-function Preferences() {
-    const [wantsNewProdInfo, setWantsNewProdInfo] = useState(False);
-    const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(False);
+function Preferences({ ref }) {
+    const [wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
+    const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(false);
 
     function handleChangeNewProdPref() {
         setWantsNewProdInfo((prevPref) => !prevPref);
@@ -12,6 +13,17 @@ function Preferences() {
 
     function handleChangeUpdateProdPref() {
         setWantsProdUpdateInfo((prevPref) => !prevPref);
+    }
+
+    function reset() {
+        setWantsNewProdInfo(false);
+        setWantsProdUpdateInfo(false);
+    }
+
+    ref.current.reset = reset;
+    ref.current.selectedPreferences = {
+        newProductInfo: wantsNewProdInfo,
+        productUpdateInfo: wantsProdUpdateInfo,
     }
 
     return (
@@ -23,7 +35,7 @@ function Preferences() {
                     checked={wantsNewProdInfo}
                     onChange={handleChangeNewProdPref}
                 />
-                <span>New Products</span>
+                <span> New Products</span>
             </label>
             <label>
                 <input
@@ -32,7 +44,7 @@ function Preferences() {
                     checked={wantsProdUpdateInfo}
                     onChange={handleChangeUpdateProdPref}
                 />
-                <span>Product Updates</span>
+                <span> Product Updates</span>
             </label>
         </div>
     );
