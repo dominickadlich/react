@@ -1,9 +1,9 @@
-import Preferences from "./Preferences";
+import PreferencesUncontrolled from "./PreferencesUncontrolled";
 import { useRef } from "react";
 
-import classes from './Form.module.css'
+import classes from './FormUncontrolled.module.css'
 
-function Form() {
+function FormUncontrolled() {
     const preferencesRef = useRef({});
 
     function handleSubmit(event) {
@@ -19,10 +19,10 @@ function Form() {
                 <label htmlFor="email">Your Email</label>
                 <input type="email" id="email" />
             </div>
-            <Preferences ref={preferencesRef} />
+            <PreferencesUncontrolled ref={preferencesRef} />
             <button>Submit</button>
         </form>
     );
 }
 
-export default Form;
+export default FormUncontrolled;

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import classes from './Preferences.module.css'
+import classes from './PreferencesUncontrolled.module.css'
 
 
-function Preferences({ ref }) {
+function PreferencesUncontrolled({ ref }) {
     const [wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
     const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(false);
 
@@ -50,4 +50,4 @@ function Preferences({ ref }) {
     );
 }
 
-export default Preferences;
+export default PreferencesUncontrolled;

@@ -3,14 +3,14 @@ import './App.css'
 
 import EmailForm from './components/EmailForm'
 import Counters from './components/Counters'
-import Preferences from './components/Preferences'
-import Form from './components/Form'
+import PreferencesUncontrolled from './components/PreferencesUncontrolled'
+import FormUncontrolled from './components/FormUncontrolled'
 
 function App() {
 
   return (
     <>
-      <Form />
+      <FormUncontrolled />
     </>
   )
 }
