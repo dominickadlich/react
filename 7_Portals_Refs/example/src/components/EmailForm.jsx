@@ -1,22 +1,35 @@
-import { useRef } from "react";
+import { useState } from "react";
+
+import ErrorDialog from "./ErrorDialog";
+import classes from './EmailForm.module.css'
 
 function EmailForm() {
-    const emailRef = useRef(null); 
+    const [enteredEmail, setEnteredEmail] = useState('');
+    const [formIsInvalid, setFormIsInvalid] = useState(false);
+
+    const emailIsValid = enteredEmail.includes('@');
+
+    function handleUpdateEmail(event) {
+        setEnteredEmail(event.target.value);
+    }
 
     function handleSubmitForm(event) {
         event.preventDefault();
-        const enteredEmail = emailRef.current.value // .current is mandatory!
-        // Could send enteredEmail to backend server
+        setFormIsInvalid(!emailIsValid);
     }
 
     return (
-        <form onSubmit={handleSubmitForm}>
-            <label htmlFor="email">Your email</label>
+        <form className={classes.form} onSubmit={handleSubmitForm}>
+            <label >Your email</label>
             <input 
-                ref={emailRef}
-                type="email" 
-                id="email" 
+                // type="email"
+                // id="email"
+                onChange={handleUpdateEmail}
             />
+            {!emailIsValid && (
+                <p className={classes.invalid}>Invalid email address!</p>
+            )}
+            {formIsInvalid && <ErrorDialog />}
             <button>Save</button>
         </form>
     );

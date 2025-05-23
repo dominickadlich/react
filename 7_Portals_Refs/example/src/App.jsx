@@ -5,12 +5,15 @@ import EmailForm from './components/EmailForm'
 import Counters from './components/Counters'
 import PreferencesUncontrolled from './components/PreferencesUncontrolled'
 import FormUncontrolled from './components/FormUncontrolled'
+import Footer from './components/Footer'
+
 
 function App() {
 
   return (
     <>
-      <FormUncontrolled />
+      <EmailForm />
+      <Footer />
     </>
   )
 }
