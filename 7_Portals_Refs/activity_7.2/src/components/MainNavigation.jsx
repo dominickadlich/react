@@ -1,7 +1,16 @@
+import { useState } from 'react'
+
 import SideDrawer from './SideDrawer.jsx'
 import classes from './MainNavigation.module.css'
 
 function MainNavigation() {
+    const [sideDrawer, setSideDrawer] = useState(false)
+
+    function handleOpenDrawer(event) {
+        event.preventDefault();
+        setSideDrawer(!sideDrawer)
+    }
+
     return (
         <>
             <header className={classes.header}>
@@ -12,7 +21,7 @@ function MainNavigation() {
                     <div />
                 </button>
             </header>
-            {/* Should be shown conditionally: <SideDrawer /> */}
+            {sideDrawer && <SideDrawer onClose={handleOpenDrawer}/>}
         </>
     );
 }

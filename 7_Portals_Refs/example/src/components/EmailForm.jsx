@@ -20,7 +20,7 @@ function EmailForm() {
 
     return (
         <form className={classes.form} onSubmit={handleSubmitForm}>
-            <label >Your email</label>
+            <label>Your email</label>
             <input 
                 // type="email"
                 // id="email"
