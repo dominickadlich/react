@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import CrClCalculator from './components/CrClCalculator.jsx'
-import Result from './components/Result'
+import Result from './components/Result.jsx'
 
 function App() {
   const [age, setAge] = useState(0)
