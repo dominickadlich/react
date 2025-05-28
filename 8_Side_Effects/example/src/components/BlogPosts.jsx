@@ -8,12 +8,13 @@ async function fetchPosts() {
     return blogPosts;
 }
 
-function BlogPosts() {
+function BlogPosts({ url }) {
     const [loadedPosts, setLoadedPosts] = useState([]);
 
     useEffect(() => {
-        fetchPosts().then((fetchedPosts) => setLoadedPosts(fetchedPosts));
-    }, []);
+        fetchPosts(url)
+            .then((fetchedPosts) => setLoadedPosts(fetchedPosts));
+    }, [url]);
 
     return (
         <>
