@@ -1,22 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import classes from './NewPost.module.css'
 
-function NewPost({ url }) {
+function NewPost() {
     const [enteredTitle, setEnteredTitle] = useState('');
+    const [isSendingRequest, setIsSendingRequest] = useState(false);
 
     function handleUpdateTitle(event) {
         setEnteredTitle(event.target.value);
     }
     
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+
+        setIsSendingRequest(true);
+
         // TODO: Handle the creation of new posts and send new post data to https://jsonplaceholder.typicode.com (via a Post) request
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
-            body: JSON.stringify({
-                title: enteredTitle }),
+            body: JSON.stringify({ title: enteredTitle }),
         });
+
+        setIsSendingRequest(false);
+        setEnteredTitle('');
     }
 
 
@@ -26,7 +32,9 @@ function NewPost({ url }) {
                 <label>Title</label>
                 <input type="text" onChange={handleUpdateTitle} value={enteredTitle} />
             </div>
-            <button>Save</button>
+            <button disabled={isSendingRequest}>
+                {isSendingRequest ? 'Saving...' : 'Save'}
+            </button>
         </form>
     );
 }
