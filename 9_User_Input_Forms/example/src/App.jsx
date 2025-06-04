@@ -10,11 +10,13 @@ import TaskActionServer from './components/TaskActionServer'
 import TodoPosts from './components/TodoPosts'
 import UseActionState from './components/UseActionState'
 import UseFormStatus from './components/UseFormStatus'
+import WithoutOptimism from './components/WithoutOptimism'
+import WithOptimism from './components/WithOptimism'
 
 function App() {
   return (
     <>
-      <UseFormStatus />
+      <WithOptimism />
     </>
   )
 }
