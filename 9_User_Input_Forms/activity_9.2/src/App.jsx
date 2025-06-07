@@ -13,13 +13,11 @@ function App() {
 
   const [optimisticFeedback, addOptimisticFeedback] = useOptimistic(
     feedbackSubmissions,
-    (currentState, optimisticValue) => {
-      return [
+    (currentState, optimisticValue) => [
         ...currentState,
         { ...optimisticValue, id: 'temp' }
-      ];
-    }
-  );
+      ]
+    );
 
   async function storeFeedback(prevState, formData) {
     const feedbackMessage = {
