@@ -69,8 +69,60 @@ function FierceForm() {
         error: null,
     })
 
+    const [rate, setRate] = useState('5');
+
+    function handleSetRate(event) {
+        setRate(event.target.value);
+    };
+
     return (
         <>
+            <header>
+                <h1>Leave a Memory</h1>
+            </header>
+            <form action={formAction}>
+                <p>
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" name="title" />
+                </p>
+                <p>
+                    <label htmlFor="text">Describe your memory</label>
+                    <textarea id="text" name="text" rows={3}/>
+                </p>
+                <p>
+                    <label htmlFor="rate">Rate your memory?</label>
+                    <input 
+                        type="range"
+                        id="rate"
+                        name="rate"
+                        min="0"
+                        max="10" 
+                        step="1"
+                        onChange={handleSetRate}
+                    />
+                    <label>{rate}</label>
+                </p>
+            <SubmitButton />
+            </form>
+            <div>
+                <h2>Your Memories</h2>
+                {optimisticMemory.length === 0 && (
+                    <p>Remember a time when...</p>
+                )}
+                {optimisticMemory.length > 0 && (
+                    <ul>
+                        {optimisticMemory.map((mem) => (
+                            <li key={mem.id}>
+                                <h3>{mem.title}</h3>
+                                <p>{mem.text}</p>
+                                <p>{mem.rate}</p>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
         </>
-    )
+    );
 }
+
+export default FierceForm;

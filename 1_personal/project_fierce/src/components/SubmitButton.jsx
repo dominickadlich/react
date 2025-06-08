@@ -5,7 +5,7 @@ function SubmitButton() {
 
     return (
         <button disabled={pending}>
-            {pending ? 'Saving...' : 'Submit'} Todo
+            {pending ? 'Saving...' : 'Submit'} Memory
         </button>
     );
 }
