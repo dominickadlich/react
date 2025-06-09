@@ -1,6 +1,7 @@
 import { useActionState ,useOptimistic, useState } from "react";
 
 import SubmitButton from "./SubmitButton";
+import { useFormState } from "react-dom";
 
 async function submitForm(title, text, rate) {
     await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate a slow network or server
@@ -57,7 +58,7 @@ function FierceForm() {
 
         addMemoryOptimistically({ title, text, rate })
 
-        const savedMemory = await storeMemory(title, text, rate);
+        const savedMemory = await submitForm(title, text, rate);
 
         setMemories((prevMemories) => [
             ...prevMemories,
@@ -84,10 +85,16 @@ function FierceForm() {
                 <p>
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" name="title" />
+                    {formState.errors?.title && (
+                        <span className="error">{formState.errors.title}</span>
+                    )}
                 </p>
                 <p>
                     <label htmlFor="text">Describe your memory</label>
                     <textarea id="text" name="text" rows={3}/>
+                    {formState.errors?.text && (
+                        <span className="errors">{formState.errors.text}</span>
+                    )}
                 </p>
                 <p>
                     <label htmlFor="rate">Rate your memory?</label>
@@ -101,6 +108,9 @@ function FierceForm() {
                         onChange={handleSetRate}
                     />
                     <label>{rate}</label>
+                    {formState.errors?.rate && (
+                        <span className="errors">{formState.errors.rate}</span>
+                    )}
                 </p>
             <SubmitButton />
             </form>
