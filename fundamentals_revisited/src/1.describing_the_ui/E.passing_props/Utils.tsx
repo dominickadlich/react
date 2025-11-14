@@ -1,4 +1,4 @@
-export default function GetImageURL(person: string, size: string | number = 's') {
+export default function GetImageURL(person: string) {
     return (
         `https://i.imgur.com/${person}.jpg`
     )
