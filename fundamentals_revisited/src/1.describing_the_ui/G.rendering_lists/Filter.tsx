@@ -24,4 +24,17 @@ const chemists = people.filter(person =>
     person.profession === 'chemist'
 );
 
-// https://react.dev/learn/rendering-lists#filtering-arrays-of-items
+const listItems = chemists.map(person => 
+    <li key={person.id}>
+        <p>
+            <b>{person.name}:</b> {person.profession}
+        </p>
+    </li>
+)
+
+
+export default function Filter() {
+  return (
+    <ul>{listItems}</ul>
+  )
+}

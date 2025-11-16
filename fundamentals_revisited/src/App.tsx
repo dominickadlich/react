@@ -1,4 +1,4 @@
-import Map from './1.describing_the_ui/G.rendering_lists/Map'
+import RecipeList from './1.describing_the_ui/G.rendering_lists/NestedLists'
 import './App.css'
 
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Map />
+      <RecipeList />
     </>
   )
 }
