@@ -1,4 +1,4 @@
-import RecipeList from './1.describing_the_ui/G.rendering_lists/NestedLists'
+import RecipeList from './1.describing_the_ui/G.rendering_lists/Recipe'
 import './App.css'
 
 

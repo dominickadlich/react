@@ -1,18 +1,21 @@
 import { recipes } from "./RecipeData";
 
 interface RecipeInterface {
-    id: string,
+    // key: string,
     name: string,
     ingredients: string[]
 }
 
-function Recipe( {id, name, ingredients}: RecipeInterface) {
-    
+function Recipe({ name, ingredients }: RecipeInterface) {
     return (
-        <div key={id}>
-            <h1>Recipes</h1><h2>name={name}</h2>
+        <div>
+            <h2>{name}</h2>
                 <ul>
-                    <li>ingredients={ingredients}</li>
+                    {ingredients.map(ingredient => 
+                        <li key={ingredient}>
+                            {ingredient}
+                        </li>
+                    )}
                 </ul>
         </div>
     );
@@ -20,12 +23,15 @@ function Recipe( {id, name, ingredients}: RecipeInterface) {
 
 export default function RecipeList() {
   return (
-    recipes.map(recipe =>
-        <Recipe 
-            id={recipe.id}
-            name={recipe.name}
-            ingredients={recipe.ingredients}
+    <div>
+        <h1>Recipes</h1>
+        {recipes.map(recipe =>
+            <Recipe
+                key={recipe.id}
+                name={recipe.name}
+                ingredients={recipe.ingredients}
         />
-    )
+    )}
+    </div>
   );
 }
