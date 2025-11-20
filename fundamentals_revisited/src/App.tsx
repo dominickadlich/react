@@ -1,4 +1,4 @@
-import RecipeList from './1.describing_the_ui/G.rendering_lists/Recipe'
+import Button from './2.adding_interactivity/A.responding_to_events/Button'
 import './App.css'
 
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <RecipeList />
+      <Button />
     </>
   )
 }
