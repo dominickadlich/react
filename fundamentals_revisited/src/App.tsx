@@ -1,4 +1,4 @@
-import StuckInput from './2.adding_interactivity/B.state_a_components_memory/StuckInput'
+import RequestTracker from './2.adding_interactivity/queueing_state_updates/RequestCounter'
 import './App.css'
 
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <StuckInput />
+      <RequestTracker />
     </div>
   )
 }
