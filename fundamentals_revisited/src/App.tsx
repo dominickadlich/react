@@ -1,11 +1,11 @@
-import ListFour from './2.adding_interactivity/F.UpdatingArraysInState/InsertingIntoArray'
+import ShoppingCart from './2.adding_interactivity/F.UpdatingArraysInState/ShoppingCart'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <ListFour />
+      <ShoppingCart />
     </div>
   )
 }
