@@ -12,7 +12,7 @@ export default function TravelPlan() {
         const nextParent = {
             ...parent,
             childIds: parent.childIds
-            .filter(id => id !== childId)
+            .filter((id) => id !== childId)
         };
         // Update the root state object...
         setPlan({
