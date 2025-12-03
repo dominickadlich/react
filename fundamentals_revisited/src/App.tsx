@@ -1,11 +1,11 @@
-import MovingDot from './2.adding_interactivity/E.updating_objects_in_state/RedDot'
+import TravelPlan from './3.managing_state/B.choosing_state_structure/BrokenList'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <MovingDot />
+      <TravelPlan />
     </div>
   )
 }
