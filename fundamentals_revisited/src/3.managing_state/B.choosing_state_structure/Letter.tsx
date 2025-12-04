@@ -1,38 +1,42 @@
 interface LetterInterface {
     id: number,
-    title: string,
+    subject: string,
     isStarred: boolean
 }
 
-type onToggleStarType = (letter: LetterInterface) => void;
+type onToggleStarType = (id: number) => void;
 
 interface LetterProps {
     letter: LetterInterface,
-    isHighlighted: boolean,
+    isHighlighted: boolean
     onHover: () => void,
     onToggleStar: onToggleStarType
 }
 
 export default function Letter({
-    letter,
-    isHighlighted,
-    onHover,
-    onToggleStar,
+  letter,
+  isHighlighted,
+  onHover,
+  onToggleStar,
 }: LetterProps) {
   return (
-    <li className={
-      isSelected ? 'selected' : ''
-    }>
-      <label>
-        <input
-          type="checkbox"
-          checked={isHighlighted}
-          onChange={() => {
-            onToggleStar(letter.id);
-          }}
-        />
-        {letter.subject}
-      </label>
+    <li
+      className={
+        isHighlighted ? 'highlighted' : ''
+      }
+      onFocus={() => {
+        onHover();        
+      }}
+      onPointerMove={() => {
+        onHover();
+      }}
+    >
+      <button onClick={() => {
+        onToggleStar(letter.id);
+      }}>
+        {letter.isStarred ? 'Unstar' : 'Star'}
+      </button>
+      {letter.subject}
     </li>
   )
 }
