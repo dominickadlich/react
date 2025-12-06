@@ -1,11 +1,11 @@
-import MultipleMailClient from './3.managing_state/B.choosing_state_structure/MultipleSelected'
+import CounterApp from './3.managing_state/D.preserving_&_resetting_state/Counter'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <MultipleMailClient />
+      <CounterApp />
     </div>
   )
 }
