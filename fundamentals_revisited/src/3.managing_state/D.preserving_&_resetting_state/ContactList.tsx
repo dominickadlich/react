@@ -14,7 +14,6 @@ interface ContactListProps {
 
 
 export default function ContactList({
-  selectedContact,
   contacts,
   onSelect
 }: ContactListProps) {
