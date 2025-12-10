@@ -15,7 +15,16 @@ export default function ContactManager() {
     c.id === selectedId
   );
 
-  function handleSave(updatedData: { id: number; }) {
+  if (!selectedContact) {
+    return  <div> Contact not found </div>
+  }
+
+  function handleSave(
+    updatedData: { 
+        id: number;
+        name: string;
+        email: string;
+    }) {
     const nextContacts = contacts.map(c => {
       if (c.id === updatedData.id) {
         return updatedData;
@@ -31,10 +40,10 @@ export default function ContactManager() {
       <ContactTwo
         contacts={contacts}
         selectedId={selectedId}
-        onSelect={id => setSelectedId(id)}
+        onSelect={() => setSelectedId(selectedId)}
       />
       <hr />
-      <ContactTwo
+      <EditContact
         key={selectedContact?.id}
         initialData={selectedContact}
         onSave={handleSave}

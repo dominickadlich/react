@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 interface InitialDataInterface {
-    id: string,
+    id: number,
     name: string,
     email: string
 }
