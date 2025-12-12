@@ -1,16 +1,10 @@
+import type { DispatchType } from "./MessageReducer";
+
 export interface ContactInterface {
     id: number,
     name: string,
     email: string
 }
-
-export interface ChangedSelectionInterface {
-    type: 'changed_selection' | 'edited_message',
-    selectedId: number,
-    message: string
-}
-
-export type DispatchType = (action: ChangedSelectionInterface) => void;
 
 interface ContactListProps {
     contacts: ContactInterface[],
@@ -29,8 +23,7 @@ export default function ContactList({contacts, selectedId, dispatch}: ContactLis
                 // TODO: dispatch changed_selection
                 dispatch({
                     type: 'changed_selection',
-                    selectedId: selectedId,
-                    message: '',
+                    contactId: contact.id,
                 })
               }}>
               {selectedId === contact.id ? <b>{contact.name}</b> : contact.name}

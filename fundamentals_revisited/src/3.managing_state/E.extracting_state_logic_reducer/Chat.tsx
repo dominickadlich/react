@@ -1,23 +1,13 @@
-import { useState, type ChangeEvent } from 'react';
 import type { ContactInterface } from './ContactList';
-
-interface EditedMessageInterface {
-    type: 'edited_message',
-    message: string
-}
-
-type DispatchType = (message: string) => void;
+import type { DispatchType } from './MessageReducer';
 
 interface ChatProps {
     contact: ContactInterface,
     message: string,
-    dispatch: EditedMessageInterface,
+    dispatch: DispatchType,
 }
 
-
 export default function Chat({contact, message, dispatch}: ChatProps) {
-    const [chat, setChat] = useState('');
-
   return (
     <section className="chat">
       <textarea
@@ -28,12 +18,23 @@ export default function Chat({contact, message, dispatch}: ChatProps) {
           dispatch({
             type: 'edited_message',
             // (Read the input value from e.target.value)
-            message: setChat(e.target.value)
+            message: e.target.value,
+            contactId: contact.id
           })
         }}
       />
       <br />
-      <button>Send to {contact.email}</button>
+      <button
+        onClick={() => {
+            alert(`Sending ${message} to ${contact.name}`)
+            dispatch({
+            type: 'edited_message',
+            message: '',
+            contactId: contact.id
+        });
+      }}>
+        Send to {contact.email}
+    </button>
     </section>
   );
 }
