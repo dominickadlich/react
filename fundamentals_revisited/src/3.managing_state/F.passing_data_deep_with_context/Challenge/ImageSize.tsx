@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { places } from "./Data";
-import { getImageUrl } from "./utils";
+import { getImageUrl, type PlaceInterface } from "./utils";
 import { ImageContext } from "./Context";
 
 
 export default function ImageSize() {
     const [isLarge, setIsLarge] = useState(false);
-    // const imageSize = isLarge ? 150 : 100;
+    const imageSize = isLarge ? 150 : 100;
     return (
-        <>
+        <ImageContext value={imageSize}>
             <label>
                 <input 
                     type="checkbox"
@@ -21,17 +21,18 @@ export default function ImageSize() {
             </label>
             <hr />
             <List />
-        </>
+        </ImageContext>
     )
 }
 
 function List() {
-    const imageSize = useContext(ImageContext)
     const listItems = places.map(place =>
         <li key={place.id}>
             <Place 
-                place={place}
-                imageSize={imageSize}
+                id={place.id}
+                name={place.name}
+                description={place.description}
+                imageId={place.imageId} 
             />
         </li>
     );
@@ -39,30 +40,32 @@ function List() {
 }
 
 
-function Place({ place }) {
+function Place( place: PlaceInterface ) {
     return (
-        <ImageContext value={}>
+        <>
             <PlaceImage 
-                place={place}
+                id={place.id}
+                name={place.name}
+                description={place.description}
+                imageId={place.imageId}            
             />
             <p>
                 <b>{place.name}</b>
                 {`: ${place.description}`}
             </p>
-        </ImageContext>
+        </>
     );
 }
 
 
-function PlaceImage({ place }) {
+function PlaceImage(place: PlaceInterface ) {
+    const imageSize = useContext(ImageContext)
     return (
-        <ImageContext value={}>
-            <img 
-                src={getImageUrl(place)}
-                alt={place.name}
-                width={imageSize}
-                height={imageSize}
-            />
-        </ImageContext>
+        <img 
+            src={getImageUrl(place)}
+            alt={place.name}
+            width={imageSize}
+            height={imageSize}
+        />
     )
 }

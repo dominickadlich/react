@@ -1,4 +1,4 @@
-interface PlaceInterface {
+export interface PlaceInterface {
       id: number,
       name: string,
       description: string,
@@ -7,8 +7,6 @@ interface PlaceInterface {
 
 export function getImageUrl( place: PlaceInterface ) {
     return (
-        `https://i.imgur.com/
-        ${place.imageId}
-        l.jpg`
+        `https://i.imgur.com/${place.imageId}l.jpg`
     )
 }

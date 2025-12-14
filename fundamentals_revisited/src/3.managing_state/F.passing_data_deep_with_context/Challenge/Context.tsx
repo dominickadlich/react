@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const ImageContext = createContext(100)
+export const ImageContext = createContext(500)
