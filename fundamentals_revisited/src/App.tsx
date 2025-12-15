@@ -1,11 +1,11 @@
-import Toggle from './4.escape_hatches/A.referencing_values_with_refs/FailingToReRender/Rerender'
+import FocusSearchApp from './4.escape_hatches/B.manipulating_the_DOM_with_refs/FocusSearch/FocusSearchApp'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <Toggle />
+      <FocusSearchApp />
     </div>
   )
 }
