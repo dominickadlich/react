@@ -1,11 +1,11 @@
-import FocusSearchApp from './4.escape_hatches/B.manipulating_the_DOM_with_refs/FocusSearch/FocusSearchApp'
+import ContactManager from './4.escape_hatches/D.you_might_not_need_effects/Challenges/Reset/ResetApp'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <FocusSearchApp />
+      <ContactManager />
     </div>
   )
 }

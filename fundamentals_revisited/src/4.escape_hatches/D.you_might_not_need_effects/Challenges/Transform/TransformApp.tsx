@@ -41,7 +41,7 @@ export default function TodoList() {
     );
 }
 
-type OnAddType = (todo: TodoInterface) => void
+type OnAddType = (todo: TodoInterface) => void;
 
 function NewTodo({ onAdd }: { onAdd: OnAddType}) {
     const [text, setText] = useState('');
