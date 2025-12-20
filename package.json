@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/toastify-js": "^1.12.4",
+    "toastify-js": "^1.12.0"
+  }
+}
