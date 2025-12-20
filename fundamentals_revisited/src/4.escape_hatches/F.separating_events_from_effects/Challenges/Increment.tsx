@@ -40,7 +40,7 @@ export default function Timer() {
                 Increment delay:
                 <button disabled={delay === 100} onClick={() => {
                 setDelay(d => d - 100);
-                }}>–100 ms</button>
+                }}>-100 ms</button>
                 <b>{delay} ms</b>
                 <button onClick={() => {
                 setDelay(d => d + 100);

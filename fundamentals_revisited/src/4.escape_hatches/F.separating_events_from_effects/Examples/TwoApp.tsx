@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent, useState } from "react";
 import { createConnectionTwo } from "./TwoChat";
-import { showNotification } from "../Notification";
+import { showNotification } from "./Notification";
 
 let serverUrl = 'https://localhost:1234'
 

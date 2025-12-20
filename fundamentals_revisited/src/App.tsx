@@ -1,11 +1,11 @@
-import ChatAppTwo from './4.escape_hatches/F.separating_events_from_effects/Examples/TwoApp'
+import TriggerApp from './4.escape_hatches/G.removing_effect_dependencies/Challenges/Retriggering/TriggerApp'
 import './App.css'
 
 
 function App() {
   return (
     <div>
-      <ChatAppTwo />
+      <TriggerApp />
     </div>
   )
 }
