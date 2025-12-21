@@ -1,22 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
-import { useEffectEvent } from 'react';
-import { FadeInAnimation } from './Animation';
+import { useState, useEffect, useRef } from "react";
+import { useEffectEvent } from "react";
+import { FadeInAnimation } from "./Animation";
 
 type AnimationType = {
-    start: (duration: number) => void;
-    stop: () => void;
-}
+  start: (duration: number) => void;
+  stop: () => void;
+};
 
-function Welcome({ duration }: { duration: number}) {
+function Welcome({ duration }: { duration: number }) {
   const ref = useRef(null);
 
   const OnAnimationStart = useEffectEvent((animation: AnimationType) => {
-    animation.start(duration)
-  })
+    animation.start(duration);
+  });
 
   useEffect(() => {
     const animation = new FadeInAnimation(ref.current);
-    OnAnimationStart(animation)
+    OnAnimationStart(animation);
     return () => {
       animation.stop();
     };
@@ -27,11 +27,12 @@ function Welcome({ duration }: { duration: number}) {
       ref={ref}
       style={{
         opacity: 0,
-        color: 'white',
+        color: "white",
         padding: 50,
-        textAlign: 'center',
+        textAlign: "center",
         fontSize: 50,
-        backgroundImage: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)'
+        backgroundImage:
+          "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)",
       }}
     >
       Welcome
@@ -51,14 +52,12 @@ export default function TriggerApp() {
           min="100"
           max="3000"
           value={duration}
-          onChange={e => setDuration(Number(e.target.value))}
+          onChange={(e) => setDuration(Number(e.target.value))}
         />
         <br />
         Fade in duration: {duration} ms
       </label>
-      <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
-      </button>
+      <button onClick={() => setShow(!show)}>{show ? "Remove" : "Show"}</button>
       <hr />
       {show && <Welcome duration={duration} />}
     </>

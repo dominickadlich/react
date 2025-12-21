@@ -1,13 +1,12 @@
-import TriggerApp from './4.escape_hatches/G.removing_effect_dependencies/Challenges/Retriggering/TriggerApp'
-import './App.css'
-
+import Form from "./4.escape_hatches/H.reusing_logic_with_custom_hooks/Examples/Form";
+import "./App.css";
 
 function App() {
   return (
     <div>
-      <TriggerApp />
+      <Form />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

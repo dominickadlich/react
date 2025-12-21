@@ -1,13 +1,13 @@
 .info {
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: #d6aafa;
-    color: #410474;
-  }
-  
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #d6aafa;
+  color: #410474;
+}
+
 .alert {
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: #f9bcb5;
-    color: #480c0c;
-  }
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #f9bcb5;
+  color: #480c0c;
+}

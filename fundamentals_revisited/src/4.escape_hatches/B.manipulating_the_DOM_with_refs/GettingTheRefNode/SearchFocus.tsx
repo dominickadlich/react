@@ -1,20 +1,12 @@
-import { useRef } from 'react';
-
+import { useRef } from "react";
 
 export default function SearchFocus() {
-    const searchRef = useRef<HTMLInputElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
 
-    return (
-        <>
-            <input 
-                placeholder='Searching for something?'
-                ref={searchRef}
-            />
-            <button
-                onClick={() => searchRef.current?.focus()}
-            >
-                Search
-            </button>
-        </>
-    )
+  return (
+    <>
+      <input placeholder="Searching for something?" ref={searchRef} />
+      <button onClick={() => searchRef.current?.focus()}>Search</button>
+    </>
+  );
 }

@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-import MainNavigation from './components/MainNavigation'
+import MainNavigation from "./components/MainNavigation";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <h2>A demo app for practicing portals!</h2>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

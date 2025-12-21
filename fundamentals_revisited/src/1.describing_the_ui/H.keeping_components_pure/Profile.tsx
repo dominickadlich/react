@@ -1,25 +1,24 @@
-import Panel from './Panel.js';
-import GetImageURL from '../E.passing_props/Utils.js';
+import Panel from "./Panel.js";
+import GetImageURL from "../E.passing_props/Utils.js";
 
 interface Person {
-    person: string;
+  person: string;
 }
 
-
-export default function Profile({ person }: Person ) {
+export default function Profile({ person }: Person) {
   return (
     <Panel>
       <Header person={person} />
       <Avatar person={person} />
     </Panel>
-  )
+  );
 }
 
-function Header({ person }: Person ) {
+function Header({ person }: Person) {
   return <h1>{person}</h1>;
 }
 
-function Avatar({ person }: Person ) {
+function Avatar({ person }: Person) {
   return (
     <img
       className="avatar"

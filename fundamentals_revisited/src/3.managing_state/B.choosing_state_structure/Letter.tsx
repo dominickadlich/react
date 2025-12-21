@@ -1,16 +1,16 @@
 interface LetterInterface {
-    id: number,
-    subject: string,
-    isStarred: boolean
+  id: number;
+  subject: string;
+  isStarred: boolean;
 }
 
 type onToggleStarType = (id: number) => void;
 
 interface LetterProps {
-    letter: LetterInterface,
-    isHighlighted: boolean
-    onHover: () => void,
-    onToggleStar: onToggleStarType
+  letter: LetterInterface;
+  isHighlighted: boolean;
+  onHover: () => void;
+  onToggleStar: onToggleStarType;
 }
 
 export default function Letter({
@@ -21,22 +21,22 @@ export default function Letter({
 }: LetterProps) {
   return (
     <li
-      className={
-        isHighlighted ? 'highlighted' : ''
-      }
+      className={isHighlighted ? "highlighted" : ""}
       onFocus={() => {
-        onHover();        
+        onHover();
       }}
       onPointerMove={() => {
         onHover();
       }}
     >
-      <button onClick={() => {
-        onToggleStar(letter.id);
-      }}>
-        {letter.isStarred ? 'Unstar' : 'Star'}
+      <button
+        onClick={() => {
+          onToggleStar(letter.id);
+        }}
+      >
+        {letter.isStarred ? "Unstar" : "Star"}
       </button>
       {letter.subject}
     </li>
-  )
+  );
 }

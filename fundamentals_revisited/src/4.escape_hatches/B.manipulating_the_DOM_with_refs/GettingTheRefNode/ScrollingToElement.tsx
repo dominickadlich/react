@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export default function CatFriends() {
   const firstCatRef = useRef<HTMLImageElement>(null);
@@ -7,40 +7,34 @@ export default function CatFriends() {
 
   function handleScrollToFirstCat() {
     firstCatRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
     });
   }
 
   function handleScrollToSecondCat() {
     secondCatRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
     });
   }
 
   function handleScrollToThirdCat() {
     thirdCatRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
     });
   }
 
   return (
     <>
       <nav>
-        <button onClick={handleScrollToFirstCat}>
-          Neo
-        </button>
-        <button onClick={handleScrollToSecondCat}>
-          Millie
-        </button>
-        <button onClick={handleScrollToThirdCat}>
-          Bella
-        </button>
+        <button onClick={handleScrollToFirstCat}>Neo</button>
+        <button onClick={handleScrollToSecondCat}>Millie</button>
+        <button onClick={handleScrollToThirdCat}>Bella</button>
       </nav>
       <div>
         <ul>

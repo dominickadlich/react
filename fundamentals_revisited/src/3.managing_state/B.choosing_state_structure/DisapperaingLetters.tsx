@@ -1,7 +1,7 @@
 interface LetterInterface {
-    id: number,
-    subject: string,
-    isStarred: boolean
+  id: number;
+  subject: string;
+  isStarred: boolean;
 }
 
 type OnToggleType = (letter: LetterInterface) => void;
@@ -11,14 +11,12 @@ export default function Letter({
   onToggle,
   isStarred,
 }: {
-    letter: LetterInterface,
-    onToggle: OnToggleType,
-    isStarred: boolean
+  letter: LetterInterface;
+  onToggle: OnToggleType;
+  isStarred: boolean;
 }) {
   return (
-    <li className={
-      isStarred ? 'selected' : ''
-    }>
+    <li className={isStarred ? "selected" : ""}>
       <label>
         <input
           type="checkbox"
@@ -30,5 +28,5 @@ export default function Letter({
         {letter.subject}
       </label>
     </li>
-  )
+  );
 }

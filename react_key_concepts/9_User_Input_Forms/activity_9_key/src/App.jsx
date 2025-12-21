@@ -1,6 +1,6 @@
-import { useActionState, useOptimistic, useState } from "react"
+import { useActionState, useOptimistic, useState } from "react";
 
-import SubmitButton from "./components/SubmitButton"
+import SubmitButton from "./components/SubmitButton";
 
 async function submitFeedback(title, text) {
   await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate slow network or server
@@ -15,21 +15,21 @@ function App() {
     feedbackSubmissions,
     (currentState, optimisticValue) => [
       ...currentState,
-      { ...optimisticValue, id: optimisticValue.title},
-    ]
+      { ...optimisticValue, id: optimisticValue.title },
+    ],
   );
 
   async function saveFeedbackAction(prevState, formData) {
-    const title = formData.get('title');
-    const text = formData.get('feedback');
+    const title = formData.get("title");
+    const text = formData.get("feedback");
 
     let errors = [];
 
     if (!title?.trim()) {
-      errors.push('A title is required!');
+      errors.push("A title is required!");
     }
     if (!text?.trim()) {
-      errors.push('Feedback is required!');
+      errors.push("Feedback is required!");
     }
 
     if (errors.length > 0) {
@@ -38,7 +38,7 @@ function App() {
       };
     }
 
-    submitOptimistically({ title, text })
+    submitOptimistically({ title, text });
 
     const savedFeedback = await submitFeedback(title, text);
 
@@ -56,7 +56,6 @@ function App() {
     errors: [],
   });
 
-
   return (
     <>
       <header>
@@ -65,7 +64,7 @@ function App() {
       <form action={formAction}>
         <p>
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" name="title"/>
+          <input type="text" id="title" name="title" />
         </p>
         <p>
           <label htmlFor="feedback">Feedback</label>

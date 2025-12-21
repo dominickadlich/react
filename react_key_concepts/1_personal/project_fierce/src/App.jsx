@@ -1,11 +1,11 @@
-import FierceForm from "./components/FierceForm"
+import FierceForm from "./components/FierceForm";
 
 function App() {
   return (
     <>
       <FierceForm />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

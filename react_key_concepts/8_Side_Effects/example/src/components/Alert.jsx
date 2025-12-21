@@ -1,29 +1,29 @@
 import { useState, useEffect } from "react";
 
 function Alert() {
-    const [alertDone, setAlertDone] = useState(false);
+  const [alertDone, setAlertDone] = useState(false);
 
-    useEffect(() => {
-        let timer;
+  useEffect(() => {
+    let timer;
 
-        console.log('Starting Alert Timer!');
-        timer = setTimeout(() => {
-            console.log('Timer Expired!');
-            setAlertDone(true);
-        }, 2000);
+    console.log("Starting Alert Timer!");
+    timer = setTimeout(() => {
+      console.log("Timer Expired!");
+      setAlertDone(true);
+    }, 2000);
 
-        return function() {
-            console.log('Cleanup!')
-            clearTimeout(timer);
-        }
-    }, []);
+    return function () {
+      console.log("Cleanup!");
+      clearTimeout(timer);
+    };
+  }, []);
 
-    return (
-        <>
-            {!alertDone && <p>Relax, you still have time!</p>}
-            {alertDone && <p>Time to get up!</p>}
-        </>
-    );
+  return (
+    <>
+      {!alertDone && <p>Relax, you still have time!</p>}
+      {alertDone && <p>Time to get up!</p>}
+    </>
+  );
 }
 
 export default Alert;
@@ -40,8 +40,8 @@ export default Alert;
 //   const [showAlert, setShowAlert] = useState(false);
 
 //   function handleShowAlert() {
-    // State updating is done by passing a function to setShowAlert
-    // because the new state depends on the previous state (it's the opposite)
+// State updating is done by passing a function to setShowAlert
+// because the new state depends on the previous state (it's the opposite)
 //     setShowAlert((isShowing) => !isShowing)
 //   }
 

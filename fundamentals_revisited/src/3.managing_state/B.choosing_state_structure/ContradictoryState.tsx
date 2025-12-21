@@ -1,49 +1,42 @@
-import { useState } from 'react';
-
+import { useState } from "react";
 
 export default function FeedbackForm() {
-    const [text, setText] = useState('');
-    const [status, setStatus] = useState('typing');
+  const [text, setText] = useState("");
+  const [status, setStatus] = useState("typing");
 
+  async function handleSubmit(e: { preventDefault: () => void }) {
+    e.preventDefault();
+    setStatus("sending");
+    await SendMessage(text);
+    setStatus("sent");
+  }
 
-    async function handleSubmit(e: { preventDefault: () => void; }) {
-        e.preventDefault();
-        setStatus('sending');
-        await SendMessage(text);
-        setStatus('sent');
-    }
+  const isSending = status === "sending";
+  const isSent = status === "sent";
 
-    const isSending = status === 'sending'
-    const isSent = status === 'sent'
+  if (isSent) {
+    return <h1>Thanks for the feedback!</h1>;
+  }
 
-
-    if (isSent) {
-        return <h1>Thanks for the feedback!</h1>
-    }
-
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <p>How was your stay at the Prancing Pony?</p>
-            <textarea 
-                disabled={isSending}
-                value={text}
-                onChange={e => setText(e.target.value)}
-            />
-            <br />
-            <button
-                disabled={isSending}
-                type='submit'
-            >
-                Send
-            </button>
-            {isSending && <p>Sending...</p>}
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <p>How was your stay at the Prancing Pony?</p>
+      <textarea
+        disabled={isSending}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <br />
+      <button disabled={isSending} type="submit">
+        Send
+      </button>
+      {isSending && <p>Sending...</p>}
+    </form>
+  );
 }
 
 function SendMessage(text: string) {
-    return new Promise(resolve => {
-        setTimeout(resolve, 2000);
-    })
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
 }

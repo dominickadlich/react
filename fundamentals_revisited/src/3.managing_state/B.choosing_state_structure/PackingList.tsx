@@ -1,44 +1,39 @@
-
-
 interface ItemInterface {
-  id: number,
-  title: string,
-  packed: boolean
+  id: number;
+  title: string;
+  packed: boolean;
 }
 
 type onChangeType = (item: ItemInterface) => void;
-type onDeleteType =  (id: number) => void;
+type onDeleteType = (id: number) => void;
 
 export default function PackingList({
   items,
   onChangeItem,
-  onDeleteItem
+  onDeleteItem,
 }: {
-  items: ItemInterface[],
-  onChangeItem: onChangeType,
-  onDeleteItem: onDeleteType,
+  items: ItemInterface[];
+  onChangeItem: onChangeType;
+  onDeleteItem: onDeleteType;
 }) {
   return (
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.id}>
           <label>
             <input
               type="checkbox"
               checked={item.packed}
-              onChange={e => {
+              onChange={(e) => {
                 onChangeItem({
                   ...item,
-                  packed: e.target.checked
+                  packed: e.target.checked,
                 });
               }}
-            />
-            {' '}
+            />{" "}
             {item.title}
           </label>
-          <button onClick={() => onDeleteItem(item.id)}>
-            Delete
-          </button>
+          <button onClick={() => onDeleteItem(item.id)}>Delete</button>
         </li>
       ))}
     </ul>

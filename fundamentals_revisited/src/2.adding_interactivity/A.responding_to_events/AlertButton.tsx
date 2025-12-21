@@ -1,25 +1,17 @@
 interface AlertButtonInterface {
-    message: string,
-    children: string
+  message: string;
+  children: string;
 }
 
 function AlertButton({ message, children }: AlertButtonInterface) {
-    return (
-        <button onClick={() => alert(message)}>
-            {children}
-        </button>
-    )
+  return <button onClick={() => alert(message)}>{children}</button>;
 }
 
 export default function Toolbar() {
-    return (
-        <div>
-            <AlertButton message="Playing">
-                Play Movie
-            </AlertButton>
-            <AlertButton message="Uploading">
-                Upload Image
-            </AlertButton>
-        </div>
-    )
+  return (
+    <div>
+      <AlertButton message="Playing">Play Movie</AlertButton>
+      <AlertButton message="Uploading">Upload Image</AlertButton>
+    </div>
+  );
 }

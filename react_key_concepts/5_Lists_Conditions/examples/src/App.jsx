@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-import TermsOfUse from './components/TermsOfUse'
-import ProductsList from './components/ProductsList'
-import ProductsListMap from './components/ProductsListMap'
-import Todos from './components/Todos'
+import TermsOfUse from "./components/TermsOfUse";
+import ProductsList from "./components/ProductsList";
+import ProductsListMap from "./components/ProductsListMap";
+import Todos from "./components/Todos";
 
 function App() {
   // const products = [
@@ -13,13 +13,11 @@ function App() {
   //   {id: 'p3', title: 'A guitar', price: 39.99},
   // ]
 
-  
-
   return (
     <>
       <TermsOfUse />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

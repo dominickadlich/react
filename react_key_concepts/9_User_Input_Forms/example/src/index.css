@@ -60,7 +60,7 @@ button:focus-visible {
 
 .actions button {
   font: inherit;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   background: #1c1c1d;

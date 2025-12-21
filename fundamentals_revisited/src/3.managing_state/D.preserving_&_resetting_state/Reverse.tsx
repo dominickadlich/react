@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Reverse() {
   const [reverse, setReverse] = useState(false);
@@ -7,41 +7,40 @@ export default function Reverse() {
       <input
         type="checkbox"
         checked={reverse}
-        onChange={e => setReverse(e.target.checked)}
+        onChange={(e) => setReverse(e.target.checked)}
       />
       Reverse order
     </label>
   );
 
-    return (
+  return (
+    <>
+      {reverse ? (
         <>
-            {reverse ? ( 
-                <>
-                    <Field key='last name' label="Last name" /> 
-                    <Field key='first name' label="First name" />
-                </> 
-            ) : (
-                <>
-                    <Field key='first name' label="First name" /> 
-                    <Field key='last name' label="Last name" />
-                </>
-            )}
-            {checkbox}
+          <Field key="last name" label="Last name" />
+          <Field key="first name" label="First name" />
         </>
-    )
-  }
-
+      ) : (
+        <>
+          <Field key="first name" label="First name" />
+          <Field key="last name" label="Last name" />
+        </>
+      )}
+      {checkbox}
+    </>
+  );
+}
 
 function Field({ label }: { label: string }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   return (
     <label>
-      {label}:{' '}
+      {label}:{" "}
       <input
         type="text"
         value={text}
         placeholder={label}
-        onChange={e => setText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
       />
     </label>
   );

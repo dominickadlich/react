@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledButton = styled.button`
-    background-color: #370566;
-    color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 4px;
+  background-color: #370566;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
 `;
 
 export default StyledButton;

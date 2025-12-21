@@ -1,15 +1,15 @@
-import Toastify from 'toastify-js'
-import 'toastify-js/src/toastify.css'
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export function ShowNotification(message: string, theme: string) {
-    Toastify({
-        text: message,
-        duration: 2000,
-        gravity: 'top',
-        position: 'right',
-        style: {
-            background: theme === 'dark' ? 'black' : 'white',
-            color: theme === 'dark' ? 'white' : 'black',
-        },
-    }).showToast();
+  Toastify({
+    text: message,
+    duration: 2000,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: theme === "dark" ? "black" : "white",
+      color: theme === "dark" ? "white" : "black",
+    },
+  }).showToast();
 }

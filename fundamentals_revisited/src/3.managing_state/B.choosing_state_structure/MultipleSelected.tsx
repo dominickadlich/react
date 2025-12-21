@@ -1,41 +1,40 @@
-import { useState } from 'react';
-import { initialLetters } from './Data.js';
-import Letter from './DisapperaingLetters.js';
+import { useState } from "react";
+import { initialLetters } from "./Data.js";
+import Letter from "./DisapperaingLetters.js";
 
 interface LetterInterface {
-  id: number,
-  subject: string,
-  isStarred: boolean
+  id: number;
+  subject: string;
+  isStarred: boolean;
 }
 
-
 export default function MultipleMailClient() {
-  const [letters, setLetters] = useState(initialLetters)
+  const [letters, setLetters] = useState(initialLetters);
 
   // TODO: allow multiple selection
-  const selectedCount = letters
-    .filter(letter => letter.isStarred)
-    .length
+  const selectedCount = letters.filter((letter) => letter.isStarred).length;
 
   function handleToggle(toggledLetter: LetterInterface) {
     // TODO: allow multiple selection
-    setLetters(letters.map(letter => {
-      if (letter.id === toggledLetter.id) {
-        return {
-          ...letter,
-          isStarred: !letter.isStarred
+    setLetters(
+      letters.map((letter) => {
+        if (letter.id === toggledLetter.id) {
+          return {
+            ...letter,
+            isStarred: !letter.isStarred,
+          };
+        } else {
+          return letter;
         }
-      } else {
-        return letter
-      }
-    }));
+      }),
+    );
   }
 
   return (
     <>
       <h2>Inbox</h2>
       <ul>
-        {letters.map(letter => (
+        {letters.map((letter) => (
           <Letter
             key={letter.id}
             letter={letter}
@@ -48,9 +47,7 @@ export default function MultipleMailClient() {
         ))}
         <hr />
         <p>
-          <b>
-            You selected {selectedCount} letters
-          </b>
+          <b>You selected {selectedCount} letters</b>
         </p>
       </ul>
     </>

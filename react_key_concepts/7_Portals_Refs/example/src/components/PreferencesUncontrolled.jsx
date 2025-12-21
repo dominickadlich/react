@@ -1,53 +1,52 @@
 import { useState } from "react";
 
-import classes from './PreferencesUncontrolled.module.css'
-
+import classes from "./PreferencesUncontrolled.module.css";
 
 function PreferencesUncontrolled({ ref }) {
-    const [wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
-    const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(false);
+  const [wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
+  const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(false);
 
-    function handleChangeNewProdPref() {
-        setWantsNewProdInfo((prevPref) => !prevPref);
-    }
+  function handleChangeNewProdPref() {
+    setWantsNewProdInfo((prevPref) => !prevPref);
+  }
 
-    function handleChangeUpdateProdPref() {
-        setWantsProdUpdateInfo((prevPref) => !prevPref);
-    }
+  function handleChangeUpdateProdPref() {
+    setWantsProdUpdateInfo((prevPref) => !prevPref);
+  }
 
-    function reset() {
-        setWantsNewProdInfo(false);
-        setWantsProdUpdateInfo(false);
-    }
+  function reset() {
+    setWantsNewProdInfo(false);
+    setWantsProdUpdateInfo(false);
+  }
 
-    ref.current.reset = reset;
-    ref.current.selectedPreferences = {
-        newProductInfo: wantsNewProdInfo,
-        productUpdateInfo: wantsProdUpdateInfo,
-    }
+  ref.current.reset = reset;
+  ref.current.selectedPreferences = {
+    newProductInfo: wantsNewProdInfo,
+    productUpdateInfo: wantsProdUpdateInfo,
+  };
 
-    return (
-        <div className={classes.preferences}>
-            <label>
-                <input
-                    type="checkbox"
-                    id="pref-new"
-                    checked={wantsNewProdInfo}
-                    onChange={handleChangeNewProdPref}
-                />
-                <span> New Products</span>
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    id="pref-updates"
-                    checked={wantsProdUpdateInfo}
-                    onChange={handleChangeUpdateProdPref}
-                />
-                <span> Product Updates</span>
-            </label>
-        </div>
-    );
+  return (
+    <div className={classes.preferences}>
+      <label>
+        <input
+          type="checkbox"
+          id="pref-new"
+          checked={wantsNewProdInfo}
+          onChange={handleChangeNewProdPref}
+        />
+        <span> New Products</span>
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          id="pref-updates"
+          checked={wantsProdUpdateInfo}
+          onChange={handleChangeUpdateProdPref}
+        />
+        <span> Product Updates</span>
+      </label>
+    </div>
+  );
 }
 
 export default PreferencesUncontrolled;

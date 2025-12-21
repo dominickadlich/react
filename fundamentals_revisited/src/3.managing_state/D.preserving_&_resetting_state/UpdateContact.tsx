@@ -1,31 +1,22 @@
-import { useState } from 'react';
-import ContactTwo from './ContactTwo.js';
-import EditContact from './EditContact.js';
+import { useState } from "react";
+import ContactTwo from "./ContactTwo.js";
+import EditContact from "./EditContact.js";
 
 export default function ContactManager() {
-  const [
-    contacts,
-    setContacts
-  ] = useState(initialContacts);
-  const [
-    selectedId,
-    setSelectedId
-  ] = useState(0);
-  const selectedContact = contacts.find(c =>
-    c.id === selectedId
-  );
+  const [contacts, setContacts] = useState(initialContacts);
+  const [selectedId, setSelectedId] = useState(0);
+  const selectedContact = contacts.find((c) => c.id === selectedId);
 
   if (!selectedContact) {
-    return  <div> Contact not found </div>
+    return <div> Contact not found </div>;
   }
 
-  function handleSave(
-    updatedData: { 
-        id: number;
-        name: string;
-        email: string;
-    }) {
-    const nextContacts = contacts.map(c => {
+  function handleSave(updatedData: {
+    id: number;
+    name: string;
+    email: string;
+  }) {
+    const nextContacts = contacts.map((c) => {
       if (c.id === updatedData.id) {
         return updatedData;
       } else {
@@ -49,11 +40,11 @@ export default function ContactManager() {
         onSave={handleSave}
       />
     </div>
-  )
+  );
 }
 
 const initialContacts = [
-  { id: 0, name: 'Taylor', email: 'taylor@mail.com' },
-  { id: 1, name: 'Alice', email: 'alice@mail.com' },
-  { id: 2, name: 'Bob', email: 'bob@mail.com' }
+  { id: 0, name: "Taylor", email: "taylor@mail.com" },
+  { id: 1, name: "Alice", email: "alice@mail.com" },
+  { id: 2, name: "Bob", email: "bob@mail.com" },
 ];

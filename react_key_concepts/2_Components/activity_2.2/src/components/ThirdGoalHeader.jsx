@@ -1,7 +1,3 @@
 export default function ThirdGoalHeader() {
-    return (
-        <h1>
-            Motivate Continuous Learning!
-        </h1>
-    );
-};
+  return <h1>Motivate Continuous Learning!</h1>;
+}

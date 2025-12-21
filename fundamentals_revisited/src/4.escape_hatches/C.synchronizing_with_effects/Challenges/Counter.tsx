@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 
 export default function Counter() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    
-    useEffect(() => {
-        function onTick() {
-            setCount(c => c + 1);
-        }
+  useEffect(() => {
+    function onTick() {
+      setCount((c) => c + 1);
+    }
 
-        const interalId = setInterval(onTick, 1000);
-        return () => clearInterval(interalId)
-    }, [])
+    const interalId = setInterval(onTick, 1000);
+    return () => clearInterval(interalId);
+  }, []);
 
-    return (
-        <h1>{count}</h1>
-    )
+  return <h1>{count}</h1>;
 }

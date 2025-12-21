@@ -1,43 +1,33 @@
 function Button({
-    onClick,
-    children
+  onClick,
+  children,
 }: {
-    onClick: React.MouseEventHandler<HTMLButtonElement>
-    children: string
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: string;
 }) {
-    return (
-        <button onClick={onClick}>
-            {children}
-        </button>
-    )
+  return <button onClick={onClick}>{children}</button>;
 }
-
 
 function Toolbar({
-    onPlayMovie,
-    onUploadImage,
+  onPlayMovie,
+  onUploadImage,
 }: {
-    onPlayMovie:  React.MouseEventHandler<HTMLButtonElement>
-    onUploadImage:  React.MouseEventHandler<HTMLButtonElement>
+  onPlayMovie: React.MouseEventHandler<HTMLButtonElement>;
+  onUploadImage: React.MouseEventHandler<HTMLButtonElement>;
 }) {
-    return (
-        <>
-            <Button onClick={onPlayMovie}>
-                Play Movie
-            </Button>
-            <Button onClick={onUploadImage}>
-                Upload Image
-            </Button>
-        </>
-    )
+  return (
+    <>
+      <Button onClick={onPlayMovie}>Play Movie</Button>
+      <Button onClick={onUploadImage}>Upload Image</Button>
+    </>
+  );
 }
 
-
 export default function MultipleInteractions() {
-    return (
-        <Toolbar 
-            onPlayMovie={() => alert('Playing!')}
-            onUploadImage={() => alert('Uploading!')}
-        />
-    )
+  return (
+    <Toolbar
+      onPlayMovie={() => alert("Playing!")}
+      onUploadImage={() => alert("Uploading!")}
+    />
+  );
 }

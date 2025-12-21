@@ -1,28 +1,30 @@
-import { useState, useOptimistic } from 'react';
+import { useState, useOptimistic } from "react";
 
-import { SaveFeedbackMessage, getFeedbackMessages } from './components/SaveFeedbackMessage';
-import SubmitButton from './components/SubmitButton';
+import {
+  SaveFeedbackMessage,
+  getFeedbackMessages,
+} from "./components/SaveFeedbackMessage";
+import SubmitButton from "./components/SubmitButton";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   const loadedFeedbackMessages = getFeedbackMessages(); // Initial fetch
-  const [feedbackMessages, setFeedbackMessages] = useState(loadedFeedbackMessages)
+  const [feedbackMessages, setFeedbackMessages] = useState(
+    loadedFeedbackMessages,
+  );
 
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
     feedbackMessages,
     (currentState, optimisticValue) => {
-      return [
-        ...currentState,
-        { ...optimisticValue, id: 'temp'}
-      ];
-    }
+      return [...currentState, { ...optimisticValue, id: "temp" }];
+    },
   );
 
   async function storeFeedbackMessage(formData) {
     const feedbackMessage = {
-      title: formData.get('title'),
-      message: formData.get('message'),
+      title: formData.get("title"),
+      message: formData.get("message"),
     };
     addOptimisticMessage(feedbackMessage);
     const updatedFeedback = await SaveFeedbackMessage(feedbackMessage);
@@ -31,20 +33,20 @@ function App() {
 
   return (
     <>
-      <div className='border'>
+      <div className="border">
         <h2>Feedback Form</h2>
         <form action={storeFeedbackMessage}>
           <p>
-            <label htmlFor='title'>Title</label>
-            <input type='text' id='title' name='title' />
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" name="title" />
           </p>
           <p>
-            <label htmlFor='message'>Your Feedback</label>
-            <textarea type='text' id='message' name='message' />
+            <label htmlFor="message">Your Feedback</label>
+            <textarea type="text" id="message" name="message" />
           </p>
           <SubmitButton />
         </form>
-        <div className='border'>
+        <div className="border">
           <h2>Your Submissions</h2>
           {optimisticMessages.length === 0 && <p>No Feedback Submitted</p>}
           {optimisticMessages.lenth > 0 && (
@@ -63,4 +65,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

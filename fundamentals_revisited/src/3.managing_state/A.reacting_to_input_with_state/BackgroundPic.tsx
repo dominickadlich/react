@@ -1,23 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Picture() {
   const [isActive, setIsActive] = useState(false);
 
-  let backgroundClassName = 'background';
-  let pictureClassName = 'picture';
+  let backgroundClassName = "background";
+  let pictureClassName = "picture";
   if (isActive) {
-    pictureClassName += ' picture--active';
+    pictureClassName += " picture--active";
   } else {
-    backgroundClassName += ' background--active';
+    backgroundClassName += " background--active";
   }
 
   return (
-    <div
-      className={backgroundClassName}
-      onClick={() => setIsActive(false)}
-    >
+    <div className={backgroundClassName} onClick={() => setIsActive(false)}>
       <img
-        onClick={e => {
+        onClick={(e) => {
           e.stopPropagation();
           setIsActive(true);
         }}

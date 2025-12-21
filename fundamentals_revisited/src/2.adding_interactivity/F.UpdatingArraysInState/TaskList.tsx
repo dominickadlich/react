@@ -1,49 +1,45 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 interface Todo {
-    id: number,
-    title: string,
-    done: boolean
+  id: number;
+  title: string;
+  done: boolean;
 }
 
 type onChangeTodoType = (todo: Todo) => void;
 type onDeleteType = (id: number) => void;
 
 interface TodosInterface {
-    todos: Todo[],
-    onChangeTodo: onChangeTodoType,
-    onDeleteTodo: onDeleteType,
+  todos: Todo[];
+  onChangeTodo: onChangeTodoType;
+  onDeleteTodo: onDeleteType;
 }
 
 export default function TaskList({
   todos,
   onChangeTodo,
-  onDeleteTodo
-}: TodosInterface ) {
+  onDeleteTodo,
+}: TodosInterface) {
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <li key={todo.id}>
-          <Task
-            todo={todo}
-            onChange={onChangeTodo}
-            onDelete={onDeleteTodo}
-          />
+          <Task todo={todo} onChange={onChangeTodo} onDelete={onDeleteTodo} />
         </li>
       ))}
     </ul>
   );
 }
 
-function Task({ 
-    todo,
-    onChange,
-    onDelete
- }: {
-    todo: Todo,
-    onChange: onChangeTodoType,
-    onDelete: onDeleteType,
- }) {
+function Task({
+  todo,
+  onChange,
+  onDelete,
+}: {
+  todo: Todo;
+  onChange: onChangeTodoType;
+  onDelete: onDeleteType;
+}) {
   const [isEditing, setIsEditing] = useState(false);
   let todoContent;
   if (isEditing) {
@@ -51,24 +47,21 @@ function Task({
       <>
         <input
           value={todo.title}
-          onChange={e => {
+          onChange={(e) => {
             onChange({
               ...todo,
-              title: e.target.value
+              title: e.target.value,
             });
-          }} />
-        <button onClick={() => setIsEditing(false)}>
-          Save
-        </button>
+          }}
+        />
+        <button onClick={() => setIsEditing(false)}>Save</button>
       </>
     );
   } else {
     todoContent = (
       <>
         {todo.title}
-        <button onClick={() => setIsEditing(true)}>
-          Edit
-        </button>
+        <button onClick={() => setIsEditing(true)}>Edit</button>
       </>
     );
   }
@@ -77,17 +70,15 @@ function Task({
       <input
         type="checkbox"
         checked={todo.done}
-        onChange={e => {
+        onChange={(e) => {
           onChange({
             ...todo,
-            done: e.target.checked
+            done: e.target.checked,
           });
         }}
       />
       {todoContent}
-      <button onClick={() => onDelete(todo.id)}>
-        Delete
-      </button>
+      <button onClick={() => onDelete(todo.id)}>Delete</button>
     </label>
   );
 }

@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
+import { useRef, useState } from "react";
+import { flushSync } from "react-dom";
 
 export default function CatFriends() {
   const [index, setIndex] = useState(0);
@@ -7,38 +7,32 @@ export default function CatFriends() {
 
   function handleScrollToCat() {
     flushSync(() => {
-    if (index < catList.length - 1) {
-                setIndex(index + 1);
-          } else {
-            setIndex(0);
-          }
-        })
+      if (index < catList.length - 1) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    });
     catRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-    })
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
   }
 
   return (
     <>
       <nav>
-        <button onClick={handleScrollToCat}>
-          Next
-        </button>
+        <button onClick={handleScrollToCat}>Next</button>
       </nav>
       <div>
         <ul>
           {catList.map((cat, i) => (
-            <li 
-                key={cat.id}
-                ref={index === i ? catRef : null}    
-            >
+            <li key={cat.id} ref={index === i ? catRef : null}>
               <img
-                className={
-                  index === i ? 'active' : '' }
+                className={index === i ? "active" : ""}
                 src={cat.imageUrl}
-                alt={'Cat #' + cat.id}
+                alt={"Cat #" + cat.id}
               />
             </li>
           ))}
@@ -52,7 +46,7 @@ const catCount = 10;
 const catList = new Array(catCount);
 for (let i = 0; i < catCount; i++) {
   const bucket = Math.floor(Math.random() * catCount) % 2;
-  let imageUrl = '';
+  let imageUrl = "";
   switch (bucket) {
     case 0: {
       imageUrl = "https://placecats.com/neo/250/200";
@@ -73,4 +67,3 @@ for (let i = 0; i < catCount; i++) {
     imageUrl,
   };
 }
-

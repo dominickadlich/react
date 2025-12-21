@@ -1,11 +1,11 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from "react";
 
-export default function Panel({ children }: {children: ReactNode}) {
+export default function Panel({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(true);
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
-        {open ? 'Collapse' : 'Expand'}
+        {open ? "Collapse" : "Expand"}
       </button>
       {open && children}
     </section>

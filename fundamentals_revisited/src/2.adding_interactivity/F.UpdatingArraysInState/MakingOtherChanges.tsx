@@ -1,30 +1,28 @@
 import { useState } from "react";
 
 const initialList = [
-    { id: 0, title: 'Big Bellies'},
-    { id: 1, title: 'Luna Landscape'},
-    { id: 2, title: 'Terracotta Army'}
+  { id: 0, title: "Big Bellies" },
+  { id: 1, title: "Luna Landscape" },
+  { id: 2, title: "Terracotta Army" },
 ];
 
 export default function OtherChangesList() {
-    const [list, setList] = useState(initialList);
+  const [list, setList] = useState(initialList);
 
-    function handleClick() {
-        const nextList = [...list];
-        nextList.reverse();
-        setList(nextList);
-    }
+  function handleClick() {
+    const nextList = [...list];
+    nextList.reverse();
+    setList(nextList);
+  }
 
-    return (
-        <>
-            <button onClick={handleClick}>
-                Reverse
-            </button>
-            <ul>
-                {list.map(artwork => (
-                    <li key={artwork.id}>{artwork.title}</li>
-                ))}
-            </ul>
-        </> 
-    );
+  return (
+    <>
+      <button onClick={handleClick}>Reverse</button>
+      <ul>
+        {list.map((artwork) => (
+          <li key={artwork.id}>{artwork.title}</li>
+        ))}
+      </ul>
+    </>
+  );
 }
